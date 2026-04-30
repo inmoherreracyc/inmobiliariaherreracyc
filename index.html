@@ -14,163 +14,99 @@
     
         body { font-family: 'Segoe UI', sans-serif; margin: 0; background-color: var(--fondo); color: var(--primario); }
 
-        /* Encabezado */
         header { 
             background: var(--primario); 
             color: var(--acentos); 
-            padding: 50px 20px; 
+            padding: 40px 20px; 
             text-align: center; 
             border-bottom: 5px solid var(--acentos); 
         }
         
-        /* Contenedor del Logo Transparente */
         .logo-container img {
-            max-height: 150px; /* Tamaño profesional */
-            margin-bottom: 15px;
-            /* Esta línea asegura que el logo se vea nítido */
-            filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.3));
+            max-height: 160px; /* Tamaño ideal */
+            width: auto;
+            margin-bottom: 10px;
+            /* Suaviza los bordes para que combine con el fondo */
+            filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.2));
         }
 
-        header h1 { margin: 0; font-size: 2.5em; letter-spacing: 3px; text-transform: uppercase; }
-        header p { margin: 10px 0 0; color: white; opacity: 0.8; font-size: 1.1em; }
+        header h1 { margin: 0; font-size: 2.2em; letter-spacing: 2px; text-transform: uppercase; }
+        header p { margin: 5px 0 0; color: white; opacity: 0.9; }
 
-        /* Barra de Filtros Estilo App */
         .filter-bar { 
-            display: flex; 
-            overflow-x: auto; 
-            gap: 12px; 
-            padding: 15px 20px; 
-            background: white; 
-            position: sticky; 
-            top: 0; 
-            z-index: 1000; 
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08); 
+            display: flex; overflow-x: auto; gap: 12px; padding: 15px; 
+            background: white; position: sticky; top: 0; z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
         }
         .badge { 
-            background-color: var(--primario); /* Azul Noche */
-            color: var(--acentos);            /* Dorado */
-            border: 1px solid var(--acentos); 
-            padding: 8px 18px; 
-            border-radius: 25px; 
-            font-size: 0.9em; 
-            white-space: nowrap; 
+            background: var(--primario); color: var(--acentos); 
+            border: 1px solid var(--acentos); padding: 10px 20px; 
+            border-radius: 25px; font-size: 0.9em; white-space: nowrap;
             font-weight: 600;
         }
 
-        /* Contenedor de Propiedades */
         .container { 
-            max-width: 1100px; 
-            margin: 30px auto; 
-            padding: 0 20px; 
-            display: grid; 
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); 
-            gap: 30px; 
+            max-width: 1100px; margin: 30px auto; padding: 0 15px;
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 30px;
         }
 
-        /* Tarjeta de Propiedad */
-        .card { 
-            background: white; 
-            border-radius: 18px; 
-            overflow: hidden; 
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05); 
-            transition: transform 0.3s ease;
-        }
-        .card:hover { transform: translateY(-8px); }
-        .card img { width: 100%; height: 240px; object-fit: cover; }
-        
+        .card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .card img { width: 100%; height: 230px; object-fit: cover; }
         .card-body { padding: 25px; }
-        .card-tag { color: var(--acentos); font-weight: bold; font-size: 0.85em; text-transform: uppercase; }
-        .price { font-size: 1.8em; font-weight: 800; margin: 12px 0; color: var(--primario); }
-        .desc { color: #555; font-size: 1em; margin-bottom: 20px; }
+        .price { font-size: 1.8em; font-weight: bold; color: var(--primario); margin: 10px 0; }
+        .desc { color: #555; line-height: 1.5; margin-bottom: 20px; }
         
-        .icons { 
-            display: flex; 
-            justify-content: space-between; 
-            border-top: 1px solid #eee; 
-            padding-top: 18px; 
-            color: #666; 
-            font-size: 0.95em; 
-        }
-
-        /* Botón WhatsApp */
         .btn-wa { 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            gap: 10px; 
-            background: var(--exito); 
-            color: white; 
-            text-decoration: none; 
-            padding: 15px; 
-            border-radius: 12px; 
-            font-weight: bold; 
-            margin-top: 20px;
+            display: flex; align-items: center; justify-content: center; gap: 10px;
+            background: var(--exito); color: white; 
+            text-align: center; padding: 15px; border-radius: 10px; 
+            text-decoration: none; font-weight: bold;
         }
 
-        /* Pie de Página Profesional */
         footer { 
-            background: var(--primario); 
-            color: white; 
-            padding: 60px 20px; 
-            text-align: center; 
-            margin-top: 60px; 
-            border-top: 5px solid var(--acentos); 
+            background: var(--primario); color: white; 
+            padding: 50px 20px; text-align: center; border-top: 5px solid var(--acentos); 
         }
-        .footer-info { opacity: 0.9; font-size: 0.95em; line-height: 2; }
-        .footer-info b { color: var(--acentos); }
+        .footer-info p { margin: 8px 0; opacity: 0.9; }
     </style>
 </head>
 <body>
 
 <header>
     <div class="logo-container">
-        <img src="https://i.postimg.cc/85Msy0fX/herrera-transparente.png" alt="Inmobiliaria Herrera C&C">
+        <img src="https://i.ibb.co/r2FGcXms/logo-azul.png" alt="Herrera C&C">
     </div>
-    <h1>HERRERA C&C</h1>
+    <h1>INMOBILIARIA HERRERA C&C</h1>
     <p>Gestión Inmobiliaria & Consultoría Empresarial</p>
 </header>
 
 <div class="filter-bar">
     <div class="badge">Venta</div>
+    <div class="badge">Arriendo</div>
     <div class="badge">Casas</div>
     <div class="badge">Apartamentos</div>
-    <div class="badge">Fincas</div>
     <div class="badge">Lotes</div>
 </div>
 
 <div class="container">
-    <div class="card" data-comision="3%">
-        <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=600" alt="Propiedad">
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600" alt="Casa en Medellín">
         <div class="card-body">
-            <span class="card-tag">Destacado | Envigado</span>
-            <div class="price">$580.000.000</div>
-            <p class="desc">
-                <b>Casa de Lujo en Loma del Chocho.</b> Acabados de alta gama, zona verde privada y seguridad 24 horas. Ideal para familias que buscan confort.
-            </p>
-            <div class="icons">
-                <span>🛏️ 3 Hab</span>
-                <span>🚿 2 Baños</span>
-                <span>📐 110m²</span>
-            </div>
-            <a href="https://wa.me/573005343498?text=Hola%20Herrera%20C&C,%20solicito%20información" class="btn-wa">
-                Contactar por WhatsApp
-            </a>
+            <div class="price">$450.000.000</div>
+            <p class="desc">Espectacular propiedad con acabados de lujo y excelente ubicación en Medellín. Lista para entrega.</p>
+            <a href="https://wa.me/573005343498" class="btn-wa">📲 Contactar por WhatsApp</a>
         </div>
     </div>
 </div>
 
 <footer>
     <div class="footer-info">
-        <h2>HERRERA C&C</h2>
-        <p>📍 <b>Ubicación:</b> Medellín-Robledo, Antioquia-Colombia</p>
-        <p>📝 <b>NIT:</b>43653580-6</p>
-        <p>📧 <b>Contacto:</b> inmobiliariaherreracyc@gmail.com<
-        <p style="margin-top: 30px; font-size: 0.8em; opacity: 0.6;">
-            © 2026 Herrera C&C - Todos los derechos reservados.
-        </p>
+        <p>📍 Medellín, Antioquia, Colombia</p>
+        <p>📞 Celular: 300 534 3498</p>
+        <p>📝 NIT: 43653580-6</p>
+        <p style="margin-top: 20px; font-size: 0.8em; opacity: 0.6;">© 2026 Inmobiliaria Herrera C&C</p>
     </div>
 </footer>
 
 </body>
 </html>
-
