@@ -3,65 +3,189 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Herrera C&C | Inmobiliaria</title>
+    <title>INMOBILIARIA Herrera C&C | Asesorías </title>
     <style>
-        body { font-family: 'Segoe UI', sans-serif; margin: 0; background: #f4f4f4; color: #1A2238; }
-        header { background: #1A2238; color: #C5A059; padding: 20px; text-align: center; border-bottom: 3px solid #C5A059; }
-        .filter-container { display: flex; overflow-x: auto; gap: 10px; padding: 15px; background: #fff; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        .badge { background: #f0f0f0; padding: 5px 12px; border-radius: 20px; font-size: 0.8em; white-space: nowrap; }
-        .property-grid-app { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 15px; padding: 15px; }
-        .card-app { background: white; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); overflow: hidden; }
-        .card-info { padding: 15px; }
-        .price { color: #C5A059; font-weight: bold; font-size: 1.4em; margin: 5px 0; }
-        .icons-row { display: flex; gap: 15px; color: #666; font-size: 0.9em; margin: 10px 0; }
-        .btn-contacto { display: block; width: 100%; background: #25D366; color: white; text-align: center; padding: 12px; border-radius: 25px; text-decoration: none; font-weight: bold; margin-top: 10px; }
+        :root {
+            --primario: #1A2238; /* Azul Noche Corporativo */
+            --acentos: #C5A059;  /* Dorado  oro Corporativo */
+            --exito: #25D366;    /* Verde WhatsApp */
+            --fondo: #f8f9fa;
+        }
+
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            margin: 0; 
+            background-color: var(--fondo); 
+            color: var(--primario); 
+        }
+
+        /* Encabezado */
+        header { 
+            background: var(--primario); 
+            color: var(--acentos); 
+            padding: 50px 20px; 
+            text-align: center; 
+            border-bottom: 5px solid var(--acentos); 
+        }
+        header img {
+            max-height: 110px;
+            margin-bottom: 15px;
+        }
+        header h1 { margin: 0; font-size: 2.5em; letter-spacing: 3px; text-transform: uppercase; }
+        header p { margin: 10px 0 0; color: white; opacity: 0.8; font-size: 1.1em; }
+
+        /* Barra de Filtros - AHORA CON COLORES CORPORATIVOS */
+        .filter-bar { 
+            display: flex; 
+            overflow-x: auto; 
+            gap: 12px; 
+            padding: 15px 20px; 
+            background: white; 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08); 
+        }
+        .badge { 
+            background-color: var(--primario); /* Fondo Azul */
+            color: var(--acentos);            /* Texto Dorado oro */
+            border: 1px solid var(--acentos); 
+            padding: 8px 20px; 
+            border-radius: 25px; 
+            font-size: 0.9em; 
+            white-space: nowrap; 
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .badge:hover {
+            background-color: var(--acentos);
+            color: var(--primario);
+        }
+
+        /* Contenedor de Propiedades */
+        .container { 
+            max-width: 1100px; 
+            margin: 30px auto; 
+            padding: 0 20px; 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); 
+            gap: 30px; 
+        }
+
+        /* Tarjeta de Propiedad */
+        .card { 
+            background: white; 
+            border-radius: 18px; 
+            overflow: hidden; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05); 
+            border: 1px solid rgba(26, 34, 56, 0.1);
+        }
+        .card img { width: 100%; height: 240px; object-fit: cover; }
+        
+        .card-body { padding: 25px; }
+        .card-tag { color: var(--acentos); font-weight: bold; font-size: 0.85em; text-transform: uppercase; }
+        .price { font-size: 1.8em; font-weight: 800; margin: 12px 0; color: var(--primario); }
+        .desc { color: #555; font-size: 1em; line-height: 1.6; margin-bottom: 20px; }
+        
+        .icons { 
+            display: flex; 
+            justify-content: space-between; 
+            border-top: 1px solid #eee; 
+            padding-top: 18px; 
+            color: #666; 
+            font-size: 0.95em; 
+        }
+
+        /* Botón WhatsApp Integrado */
+        .btn-wa { 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            gap: 10px; 
+            background: var(--exito); 
+            color: white; 
+            text-decoration: none; 
+            padding: 15px; 
+            border-radius: 12px; 
+            font-weight: bold; 
+            margin-top: 20px;
+            border: 2px solid transparent;
+            transition: 0.3s;
+        }
+        .btn-wa:hover {
+            border-color: var(--acentos);
+            background-color: #1ebe57;
+        }
+
+        /* Pie de Página Corporativo */
+        footer { 
+            background: var(--primario); 
+            color: white; 
+            padding: 60px 20px; 
+            text-align: center; 
+            margin-top: 60px; 
+            border-top: 5px solid var(--acentos); 
+        }
+        .footer-info { font-size: 0.95em; line-height: 2; opacity: 0.9; }
+        .footer-info b { color: var(--acentos); }
     </style>
 </head>
-<footer style="background-color: #1A2238; color: grey; padding: 40px 20px; text-align: center; border-top: 4px solid #C5A059; margin-top: 50px; font-family: 'Segoe UI', sans-serif;">
-    <div style="max-width: 800px; margin: auto;">
-        <h2 style="color: #C5A059; margin-bottom: 10px;">INMOBILIARIA HERRERA C&C</h2>
-        <p style="margin: 5px 0; opacity: 0.9;">Gestión Inmobiliaria & Consultoría</p>
-        
-        <div style="margin: 20px 0; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px;">
-            <p>📍 <b>Ubicación:</b> Medellín-Robledo, Antioquia- Colombia</p>
-            <p>📝 <b>NIT:</b> [43653580-6]</p>
-            <p>📧 <b>Contacto:</b> herreracyc.inmobiliaria@gmail.com</p>
-        </div>
-
-        <p style="font-size: 0.8em; opacity: 0.6; margin-top: 30px;">
-            © 2026 Herrera C&C - Todos los derechos reservados.
-        </p>
-    </div>
-</footer><body>
+<body>
 
 <header>
+    <img src="URL_DE_TU_LOGO_AQUI.png" alt="Logo Herrera C&C">
     <h1>HERRERA C&C</h1>
-    <p>Gestión Inmobiliaria & Consultoría</p>
+    <p>Gestión Inmobiliaria & Consultoría Empresarial</p>
 </header>
 
-<div class="filter-container">
-    <div class="badge"><b>Venta</b></div>
-    <div class="badge">Apartamentos</div>
+<div class="filter-bar">
+    <div class="badge">Venta</div>
+    <div class="badge">Arriendo</div>
     <div class="badge">Medellín</div>
-    <div class="badge">Antioquia</div>
+    <div class="badge">Envigado</div>
+    <div class="badge">Casas</div>
 </div>
 
-<div class="property-grid-app">
-    <div class="card-app">
-        <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=500" width="100%">
-        <div class="card-info">
-            <p style="color: #C5A059; font-weight: bold; margin: 0;">DESTACADO</p>
+<div class="container">
+    <div class="card" data-comision="3%">
+        <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=600" alt="Propiedad Herrera C&C">
+        <div class="card-body">
+            <span class="card-tag">Destacado | Envigado</span>
             <div class="price">$580.000.000</div>
-            <p style="color: #777; margin: 5px 0;">Casa en Envigado, Loma del Chocho</p>
-            <div class="icons-row">
-                <span>🛏️ 3 hab</span>
-                <span>🚿 2 baños</span>
-                <span>📐 110 m²</span>
+            <p class="desc">
+                <b>Casa de Lujo en Loma del Chocho.</b> Una propiedad que combina elegancia y naturaleza. Cuenta con amplios ventanales, cocina tipo isla y una terraza privada ideal para el descanso. Seguridad y exclusividad en un solo lugar.
+            </p>
+            <div class="icons">
+                <span>🛏️ 3 Hab</span>
+                <span>🚿 2 Baños</span>
+                <span>📐 110m²</span>
             </div>
-            <a href="https://wa.me/573005343498" class="btn-contacto">Contactar por WhatsApp</a>
+            <a href="https://wa.me/573005343498?text=Hola%20Herrera%20C&C,%20me%20interesa%20la%20casa%20en%20Envigado" class="btn-wa">
+                Consultar por WhatsApp
+            </a>
         </div>
     </div>
 </div>
+
+<footer>
+    <div class="footer-info">
+        <p><b>HERRERA C&C - SERVICIOS INTEGRALES</b></p>
+        <p>📍 Medellín-Robledo, Antioquia- Colombia</p>
+        <p>📝 NIT: [43653580]</p>
+        <p>📧 inmobiliariaherreracyc@gmail.com</p>
+        <p style="margin-top: 30px; font-size: 0.8em; opacity: 0.5;">
+            © 2026 Herrera C&C | Todos los derechos reservados.
+        </p>
+    </div>
+</footer>
+
+ <a href="https://wa.me/573005343498" class="btn-contacto">Contactar por WhatsApp</a>
+        </div>
+    </div>
+</div></body>
+</html>
+           
 
 </body>
 </html>
