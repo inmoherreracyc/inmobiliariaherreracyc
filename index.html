@@ -3,16 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>INMOBILIARIA HERRERA C&C | Gestión Inmobiliaria</title>
+    <title>Inmobiliaria Herrera C&C | Gestión Inmobiliaria</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --primario: #1A2238; /* Azul Noche CORPORATIVO */
-            --acentos: #C5A059;  /* Dorado oro 3d CORPORATIVO */
-            --exito: #25D366;    /* Verde WhatsApp */
+            --primario: #1A2238; 
+            --acentos: #C5A059;  
+            --exito: #25D366;    
             --fondo: #f8f9fa;
         }
     
-        body { font-family: 'Segoe UI', sans-serif; margin: 0; background-color: var(--fondo); color: var(--primario); }
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; background-color: var(--fondo); color: var(--primario); scroll-behavior: smooth; }
 
         header { 
             background: var(--primario); 
@@ -23,26 +24,32 @@
         }
         
         .logo-container img {
-            max-height: 160px; /* Tamaño ideal */
+            max-height: 160px;
             width: auto;
             margin-bottom: 10px;
-            /* Suaviza los bordes para que combine con el fondo */
             filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.2));
         }
 
-        header h1 { margin: 0; font-size: 2.2em; letter-spacing: 2px; text-transform: uppercase; }
-        header p { margin: 5px 0 0; color: white; opacity: 0.9; }
+        /* Animación de movimiento para los botones de categorías */
+        @keyframes pulse-gold {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(197, 160, 89, 0.4); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(197, 160, 89, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(197, 160, 89, 0); }
+        }
 
         .filter-bar { 
-            display: flex; overflow-x: auto; gap: 12px; padding: 15px; 
+            display: flex; overflow-x: auto; gap: 15px; padding: 20px; 
             background: white; position: sticky; top: 0; z-index: 1000;
             box-shadow: 0 4px 10px rgba(0,0,0,0.05);
         }
+        
         .badge { 
             background: var(--primario); color: var(--acentos); 
-            border: 1px solid var(--acentos); padding: 10px 20px; 
+            border: 1px solid var(--acentos); padding: 12px 25px; 
             border-radius: 25px; font-size: 0.9em; white-space: nowrap;
-            font-weight: 600;
+            font-weight: 600; cursor: pointer;
+            /* Aplicamos la animación */
+            animation: pulse-gold 3s infinite;
         }
 
         .container { 
@@ -53,21 +60,27 @@
         .card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
         .card img { width: 100%; height: 230px; object-fit: cover; }
         .card-body { padding: 25px; }
-        .price { font-size: 1.8em; font-weight: bold; color: var(--primario); margin: 10px 0; }
-        .desc { color: #555; line-height: 1.5; margin-bottom: 20px; }
+        .price { font-size: 1.8em; font-weight: bold; color: var(--primario); }
         
         .btn-wa { 
             display: flex; align-items: center; justify-content: center; gap: 10px;
             background: var(--exito); color: white; 
-            text-align: center; padding: 15px; border-radius: 10px; 
-            text-decoration: none; font-weight: bold;
+            padding: 15px; border-radius: 10px; text-decoration: none; font-weight: bold;
         }
+
+        /* Estilos Redes Sociales */
+        .social-links { margin: 25px 0; display: flex; justify-content: center; gap: 20px; }
+        .social-links a { 
+            color: var(--acentos); font-size: 1.8em; text-decoration: none; 
+            transition: transform 0.3s ease; 
+        }
+        .social-links a:hover { transform: translateY(-5px); color: white; }
 
         footer { 
             background: var(--primario); color: white; 
             padding: 50px 20px; text-align: center; border-top: 5px solid var(--acentos); 
         }
-        .footer-info p { margin: 8px 0; opacity: 0.9; }
+        .footer-info a { color: var(--acentos); text-decoration: none; font-weight: bold; }
     </style>
 </head>
 <body>
@@ -76,7 +89,7 @@
     <div class="logo-container">
         <img src="https://i.ibb.co/r2FGcXms/logo-azul.png" alt="Herrera C&C">
     </div>
-    <h1>INMOBILIARIA HERRERA C&C</h1>
+    <h1>INMOBILIARA HERRERA C&C</h1>
     <p>Gestión Inmobiliaria & Consultoría Empresarial</p>
 </header>
 
@@ -84,16 +97,16 @@
     <div class="badge">Venta</div>
     <div class="badge">Casas</div>
     <div class="badge">Apartamentos</div>
-    <div class="badge">Fincas y casafincas</div>
     <div class="badge">Lotes</div>
+    <div class="badge">Fincas</div>
 </div>
 
 <div class="container">
     <div class="card">
-        <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600" alt="Casa en Medellín">
+        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600" alt="Propiedad">
         <div class="card-body">
-            <div class="price">$450.000.000</div>
-            <p class="desc">Espectacular propiedad con acabados de lujo y excelente ubicación en Medellín. Lista para entrega.</p>
+            <div class="price">$350.000.000</div>
+            <p>Casa Esquinera Unifamiliar. Cocina integral, 4 habitaciones, 3 baños y 3 balcones. Escrituras públicas.</p>
             <a href="https://wa.me/573005343498" class="btn-wa">📲 Contactar por WhatsApp</a>
         </div>
     </div>
@@ -102,8 +115,16 @@
 <footer>
     <div class="footer-info">
         <p>📍 Medellín, Antioquia, Colombia</p>
-        <p>📞 Celular: 300 534 3498</p>
-        <p>📝 NIT: 43653580-6</p>
+        <p>📞 Celular: <b>300 534 3498</b></p>
+        <p>📝 NIT: <b>43653580-6</b></p>
+        <p>📧 Correo: <a href="mailto:inmobiliariaherreracyc@gmail.com">inmobiliariaherreracyc@gmail.com</a></p>
+        
+        <div class="social-links">
+            <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" title="TikTok"><i class="fab fa-tiktok"></i></a>
+        </div>
+        
         <p style="margin-top: 20px; font-size: 0.8em; opacity: 0.6;">© 2026 Inmobiliaria Herrera C&C</p>
     </div>
 </footer>
