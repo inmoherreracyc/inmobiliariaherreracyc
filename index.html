@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Herrera C&C | Inmobiliaria</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; background: #f4f4f4; color: #1A2238; }
+        header { background: #1A2238; color: #C5A059; padding: 20px; text-align: center; border-bottom: 3px solid #C5A059; }
+        .filter-container { display: flex; overflow-x: auto; gap: 10px; padding: 15px; background: #fff; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .badge { background: #f0f0f0; padding: 5px 12px; border-radius: 20px; font-size: 0.8em; white-space: nowrap; }
+        .property-grid-app { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 15px; padding: 15px; }
+        .card-app { background: white; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); overflow: hidden; }
+        .card-info { padding: 15px; }
+        .price { color: #C5A059; font-weight: bold; font-size: 1.4em; margin: 5px 0; }
+        .icons-row { display: flex; gap: 15px; color: #666; font-size: 0.9em; margin: 10px 0; }
+        .btn-contacto { display: block; width: 100%; background: #25D366; color: white; text-align: center; padding: 12px; border-radius: 25px; text-decoration: none; font-weight: bold; margin-top: 10px; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>HERRERA C&C</h1>
+    <p>Gestión Inmobiliaria & Consultoría</p>
+</header>
+
+<div class="filter-container">
+    <div class="badge"><b>Venta</b></div>
+    <div class="badge">Apartamentos</div>
+    <div class="badge">Medellín</div>
+    <div class="badge">Envigado</div>
+</div>
+
+<div class="property-grid-app">
+    <div class="card-app">
+        <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=500" width="100%">
+        <div class="card-info">
+            <p style="color: #C5A059; font-weight: bold; margin: 0;">DESTACADO</p>
+            <div class="price">$580.000.000</div>
+            <p style="color: #777; margin: 5px 0;">Casa en Envigado, Loma del Chocho</p>
+            <div class="icons-row">
+                <span>🛏️ 3 hab</span>
+                <span>🚿 2 baños</span>
+                <span>📐 110 m²</span>
+            </div>
+            <a href="https://wa.me/57TU_NUMERO" class="btn-contacto">Contactar por WhatsApp</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
