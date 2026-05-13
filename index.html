@@ -30,7 +30,6 @@
             filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.2));
         }
 
-        /* Animación de movimiento para los botones de categorías */
         @keyframes pulse-gold {
             0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(197, 160, 89, 0.4); }
             70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(197, 160, 89, 0); }
@@ -48,7 +47,6 @@
             border: 1px solid var(--acentos); padding: 12px 25px; 
             border-radius: 25px; font-size: 0.9em; white-space: nowrap;
             font-weight: 600; cursor: pointer;
-            /* Aplicamos la animación */
             animation: pulse-gold 3s infinite;
         }
 
@@ -60,15 +58,18 @@
         .card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
         .card img { width: 100%; height: 230px; object-fit: cover; }
         .card-body { padding: 25px; }
-        .price { font-size: 1.8em; font-weight: bold; color: var(--primario); }
+        .price { font-size: 1.8em; font-weight: bold; color: var(--primario); margin-bottom: 10px; }
         
+        .desc { font-size: 0.95em; line-height: 1.5; margin-bottom: 20px; }
+
         .btn-wa { 
             display: flex; align-items: center; justify-content: center; gap: 10px;
             background: var(--exito); color: white; 
             padding: 15px; border-radius: 10px; text-decoration: none; font-weight: bold;
+            transition: background 0.3s ease;
         }
+        .btn-wa:hover { background: #128C7E; }
 
-        /* Estilos Redes Sociales */
         .social-links { margin: 25px 0; display: flex; justify-content: center; gap: 20px; }
         .social-links a { 
             color: var(--acentos); font-size: 1.8em; text-decoration: none; 
@@ -102,14 +103,30 @@
 </div>
 
 <div class="container">
+    
+    <!-- PROPIEDAD: CÓDIGO 777-0 -->
     <div class="card">
-        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600" alt="Propiedad">
+        <img src="https://i.ibb.co/tMHRrgzL/casa-robledo.jpg" alt="Casa en Robledo Villa Campiña">
         <div class="card-body">
             <div class="price">$350.000.000</div>
-            <p>Casa Esquinera Unifamiliar. Cocina integral, 4 habitaciones, 3 baños y 3 balcones. Escrituras públicas.</p>
-            <a href="https://wa.me/573005343498" class="btn-wa">📲 Contactar por WhatsApp</a>
+            
+            <p class="desc">
+                <span style="color: var(--acentos); font-weight: bold; border-bottom: 1px solid var(--acentos);">CÓDIGO: 777-0</span><br><br>
+                <b>Hermosa Casa Unifamiliar Esquinera - Robledo Villa Campiña</b><br>
+                3 pisos con aire, en unidad abierta muy tranquila con zona infantil.<br><br>
+                <b>Distribución:</b><br>
+                • Piso 1: Habitación, cocina integral, sala comedor, patio y cuarto útil.<br>
+                • Piso 2: 2 habitaciones (una con vestier), baño y balcón.<br>
+                • Piso 3: Habitación con vestier, baño y terraza techada.<br><br>
+                <b>Detalles:</b> Área 100 Mts², Estrato 3, parqueaderos comunes.
+            </p>
+
+            <a href="https://wa.me/573005343498?text=Hola%20Herrera%20C&C,%20me%20interesa%20la%20propiedad%20CÓDIGO:%20777-0" class="btn-wa">
+                📲 Contactar por WhatsApp
+            </a>
         </div>
     </div>
+
 </div>
 
 <footer>
@@ -123,7 +140,7 @@
             <a href="https://www.facebook.com/inmo.hogar.100" title="Facebook"><i class="fab fa-facebook"></i></a>
             <a href="https://www.instagram.com/centurygoldencc/" title="Instagram"><i class="fab fa-instagram"></i></a>
             <a href="https://www.tiktok.com/@century_goldencc?is_from_webapp=1&sender_device=pc" title="TikTok"><i class="fab fa-tiktok"></i></a>
-            <a href="https://www.youtube.com/feed/you" title="youtube"><i class="fab fa-youtube"></i></a>
+            <a href="https://www.youtube.com/feed/you" title="YouTube"><i class="fab fa-youtube"></i></a>
         </div>
         
         <p style="margin-top: 20px; font-size: 0.8em; opacity: 0.6;">© 2026 Inmobiliaria Herrera C&C</p>
