@@ -16,44 +16,28 @@
     
         body { font-family: 'Segoe UI', sans-serif; margin: 0; background-color: var(--fondo); color: var(--texto); scroll-behavior: smooth; }
 
-        /* HEADER AZUL DELGADO Y ELEGANTE */
+        /* HEADER AZUL COMPACTO Y ELEGANTE (SIN IMAGEN DE FONDO) */
         header { 
             background: var(--primario); 
             color: var(--acentos); 
-            padding: 15px; 
-            text-align: center; 
+            padding: 25px 15px; 
+            text-align: center;
+            border-bottom: 4px solid var(--acentos); /* Línea dorada divisoria */
         }
         
         .logo-container img {
-            max-height: 90px; 
+            max-height: 95px; 
             width: auto;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
             filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.3));
         }
 
-        header h1 { margin: 5px 0; font-size: 1.6em; text-transform: uppercase; letter-spacing: 1px; }
-        header p { margin: 3px 0 0 0; font-size: 0.95em; opacity: 0.9; }
+        header h1 { margin: 5px 0; font-size: 1.7em; text-transform: uppercase; letter-spacing: 1px; }
+        header p { margin: 4px 0 0 0; font-size: 0.95em; opacity: 0.9; color: white; }
 
-        /* BANNER PROTAGONISTA PERO COMPACTO */
-        .banner-contenedor {
-            width: 100%;
-            height: 280px; /* Altura controlada para que no robe excesivo espacio */
-            overflow: hidden;
-            display: block;
-            background-color: var(--primario); 
-            border-bottom: 4px solid var(--acentos); 
-        }
-
-        .banner-contenedor img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; 
-            object-position: center 35%; /* Centra la vista en la mejor parte de la ciudad */
-        }
-
-        /* Ajuste de altura ideal para pantallas de celulares */
+        /* Ajustes para celulares */
         @media (max-width: 768px) {
-            .banner-contenedor { height: 180px; }
+            header { padding: 20px 10px; }
             header h1 { font-size: 1.3em; }
             header p { font-size: 0.85em; }
         }
@@ -144,7 +128,6 @@
 </head>
 <body>
 
-<!-- SECCIÓN 1: Logotipo y títulos -->
 <header>
     <div class="logo-container">
         <img src="https://i.ibb.co/r2FGcXms/logo-azul.png" alt="Herrera C&C Logo">
@@ -153,12 +136,6 @@
     <p>Gestión Inmobiliaria & Consultoría Empresarial</p>
 </header>
 
-<!-- SECCIÓN 2: Foto de Medellín local (Ajustada y equilibrada) -->
-<div class="banner-contenedor">
-    <img src="medellin.jpg" alt="Panorámica de Medellín">
-</div>
-
-<!-- SECCIÓN 3: Barra de Navegación / Filtros -->
 <div class="filter-bar">
     <div class="badge">Venta</div>
     <div class="badge">Casas</div>
@@ -167,10 +144,8 @@
     <div class="badge">Fincas</div>
 </div>
 
-<!-- SECCIÓN 4: Catálogo de propiedades -->
 <div class="container">
     
-    <!-- PROPIEDAD: CÓDIGO 777-0 -->
     <div class="card">
         <div class="status-badge">Disponible</div>
         <div class="category-badge">Casa</div>
@@ -187,7 +162,6 @@
         </div>
     </div>
 
-    <!-- PROPIEDAD: CÓDIGO 777-1 -->
     <div class="card">
         <div class="status-badge">Disponible</div>
         <div class="category-badge">Casa</div>
@@ -206,7 +180,6 @@
 
 </div>
 
-<!-- SECCIÓN 5: Pie de página -->
 <footer>
     <div class="footer-info">
         <p>📍 Medellín, Antioquia, Colombia</p>
