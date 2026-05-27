@@ -1,201 +1,26 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inmobiliaria Herrera C&C | Gestión Inmobiliaria</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        :root {
-            --primario: #1A2238; /* Azul Profundo */
-            --acentos: #C5A059;  /* Dorado */
-            --exito: #25D366;    /* Verde WhatsApp */
-            --fondo: #f8f9fa;
-            --texto: #333;
-        }
+<style>
+    /* ... (resto de tus estilos root, body, etc. se mantienen igual) ... */
+
+    /* HEADER ACTUALIZADO: Banner con Imagen y Filtro Ajustado */
+    header { 
+        background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://i.ibb.co/3s888vX/medellin-banner-opt.jpg'); /* NUEVO LINK FUNCIONAL */
+        background-size: cover;
+        background-position: center;
+        color: var(--acentos); 
+        padding: 80px 20px; /* Más padding para que se vea más ciudad */
+        text-align: center; 
+        border-bottom: 5px solid var(--acentos); 
+    }
     
-        body { font-family: 'Segoe UI', sans-serif; margin: 0; background-color: var(--fondo); color: var(--texto); scroll-behavior: smooth; }
+    .logo-container img {
+        max-height: 160px;
+        width: auto;
+        margin-bottom: 15px;
+        filter: drop-shadow(0px 3px 6px rgba(0,0,0,0.4));
+        /* Si tu logo tiene fondo transparente, esto lo hará resaltar más. */
+    }
 
-        /* HEADER ACTUALIZADO: Banner con Imagen y Filtro */
-        header { 
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://i.ibb.co/68v8vX5/banner-medellin.jpg'); /* REEMPLAZAR CON TU LINK DIRECTO DE IMGBB */
-            background-size: cover;
-            background-position: center;
-            color: var(--acentos); 
-            padding: 60px 20px; 
-            text-align: center; 
-            border-bottom: 5px solid var(--acentos); 
-        }
-        
-        .logo-container img {
-            max-height: 160px;
-            width: auto;
-            margin-bottom: 15px;
-            filter: drop-shadow(0px 3px 6px rgba(0,0,0,0.4));
-        }
+    header h1 { margin-top: 0; font-size: 2.2em; text-transform: uppercase; }
 
-        header h1 { margin-top: 0; font-size: 2.2em; text-transform: uppercase; }
-
-        /* Animación para los botones de categorías */
-        @keyframes pulse-gold {
-            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(197, 160, 89, 0.4); }
-            70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(197, 160, 89, 0); }
-            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(197, 160, 89, 0); }
-        }
-
-        .filter-bar { 
-            display: flex; overflow-x: auto; gap: 15px; padding: 20px; 
-            background: white; position: sticky; top: 0; z-index: 1000;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-        }
-        
-        .badge { 
-            background: var(--primario); color: var(--acentos); 
-            border: 1px solid var(--acentos); padding: 12px 25px; 
-            border-radius: 25px; font-size: 0.9em; white-space: nowrap;
-            font-weight: 600; cursor: pointer;
-            animation: pulse-gold 3s infinite;
-        }
-
-        /* CONTAINER CON CUADRÍCULA PROFESIONAL */
-        .container { 
-            max-width: 1200px; margin: 40px auto; padding: 0 20px;
-            display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 35px;
-        }
-
-        /* ESTILO DE TARJETA ACTUALIZADO */
-        .card { 
-            background: white; 
-            border-radius: 12px; /* Bordes más rectos, más profesionales */
-            overflow: hidden; 
-            box-shadow: 0 6px 20px rgba(0,0,0,0.08); 
-            transition: transform 0.3s ease; 
-            position: relative; /* Para las etiquetas */
-        }
-        .card:hover { transform: translateY(-5px); }
-
-        .card img { width: 100%; height: 250px; object-fit: cover; }
-
-        /* Etiquetas "Disponible" y "Categoría" */
-        .status-badge {
-            position: absolute; top: 15px; left: 15px;
-            background: var(--exito); color: white;
-            padding: 5px 12px; border-radius: 4px; font-size: 0.8em; font-weight: bold;
-        }
-        .category-badge {
-            position: absolute; top: 15px; right: 15px;
-            background: var(--primario); color: var(--acentos);
-            padding: 5px 12px; border-radius: 4px; font-size: 0.8em; font-weight: bold;
-        }
-
-        .card-body { padding: 25px; }
-        .price { font-size: 1.8em; font-weight: bold; color: var(--primario); margin-bottom: 12px; }
-        
-        .desc { font-size: 0.95em; line-height: 1.6; margin-bottom: 25px; color: #555; }
-        .desc b { color: var(--primario); }
-
-        .btn-wa { 
-            display: flex; align-items: center; justify-content: center; gap: 10px;
-            background: var(--exito); color: white; 
-            padding: 16px; border-radius: 8px; text-decoration: none; font-weight: bold;
-            transition: background 0.3s ease;
-        }
-        .btn-wa:hover { background: #128C7E; }
-
-        .social-links { margin: 25px 0; display: flex; justify-content: center; gap: 20px; }
-        .social-links a { 
-            color: var(--acentos); font-size: 1.8em; text-decoration: none; 
-            transition: transform 0.3s ease; 
-        }
-        .social-links a:hover { transform: translateY(-5px); color: white; }
-
-        footer { 
-            background: var(--primario); color: white; 
-            padding: 60px 20px; text-align: center; border-top: 5px solid var(--acentos); 
-        }
-        .footer-info a { color: var(--acentos); text-decoration: none; font-weight: bold; }
-    </style>
-</head>
-<body>
-
-<header>
-    <div class="logo-container">
-        <img src="https://i.ibb.co/r2FGcXms/logo-azul.png" alt="Herrera C&C Logo">
-    </div>
-    <h1>INMOBILIARIA HERRERA C&C</h1>
-    <p>Gestión Inmobiliaria & Consultoría Empresarial</p>
-</header>
-
-<div class="filter-bar">
-    <div class="badge">Venta</div>
-    <div class="badge">Casas</div>
-    <div class="badge">Apartamentos</div>
-    <div class="badge">Lotes</div>
-    <div class="badge">Fincas</div>
-</div>
-
-<div class="container">
-    
-    <div class="card">
-        <div class="status-badge">Disponible</div>
-        <div class="category-badge">Casa</div>
-        
-        <img src="https://i.ibb.co/tMHRrgzL/casa-robledo.jpg" alt="Casa en Robledo">
-        <div class="card-body">
-            <div class="price">$350.000.000</div>
-            
-            <p class="desc">
-                <span style="color: var(--acentos); font-weight: bold; border-bottom: 1px solid var(--acentos);">CÓDIGO: 777-0</span><br><br>
-                <b>Hermosa Casa Unifamiliar Esquinera - Robledo Villa Campiña</b><br>
-                3 pisos con aire, en unidad abierta muy tranquila con zona infantil.<br><br>
-                <b>Distribución:</b> 1er piso con habitación y cocina integral. 2do y 3er piso con 3 habitaciones adicionales (principal con vestier), baños y balcón/terraza BBQ. Área total aprox. 100 Mts². Estrato 3.
-            </p>
-
-            <a href="https://wa.me/573005343498?text=Hola%20Herrera%20C&C,%20me%20interesa%20la%20propiedad%20CÓDIGO:%20777-0" class="btn-wa">
-                📲 Contactar por WhatsApp
-            </a>
-        </div>
-    </div>
-
-    <div class="card">
-        <div class="status-badge">Disponible</div>
-        <div class="category-badge">Casa</div>
-        
-        <img src="https://i.ibb.co/qL7QvGjf/casa-san-martin.jpg" alt="Casa en San Martín">
-        <div class="card-body">
-            <div class="price">$375.000.000</div>
-            
-            <p class="desc">
-                <span style="color: var(--acentos); font-weight: bold; border-bottom: 1px solid var(--acentos);">CÓDIGO: 777-1</span><br><br>
-                <b>Casa de 3 Pisos - Urbanización San Martín</b><br>
-                Cerca de La Campiña. Unidad abierta con gimnasio, zona infantil y zonas verdes.<br><br>
-                <b>Distribución:</b> 3 habitaciones (principal con baño y vestier), sala-comedor y cocina integral. 3er piso con zona BBQ y zona de ropas, posibilidad de ampliación. Área aprox. 118 m². Estrato 3.
-            </p>
-
-            <a href="https://wa.me/573005343498?text=Hola%20Herrera%20C&C,%20me%20interesa%20la%20propiedad%20CÓDIGO:%20777-1" class="btn-wa">
-                📲 Contactar por WhatsApp
-            </a>
-        </div>
-    </div>
-
-</div>
-
-<footer>
-    <div class="footer-info">
-        <p>📍 Medellín, Antioquia, Colombia</p>
-        <p>📞 Celular: <b>300 534 3498</b></p>
-        <p>📧 Correo: <a href="mailto:inmobiliariaherreracyc@gmail.com">inmobiliariaherreracyc@gmail.com</a></p>
-        
-        <div class="social-links">
-            <a href="https://www.facebook.com/inmo.hogar.100" title="Facebook"><i class="fab fa-facebook"></i></a>
-            <a href="https://www.instagram.com/centurygoldencc/" title="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.tiktok.com/@century_goldencc?is_from_webapp=1&sender_device=pc" title="TikTok"><i class="fab fa-tiktok"></i></a>
-            <a href="https://www.youtube.com/feed/you" title="YouTube"><i class="fab fa-youtube"></i></a>
-        </div>
-        
-        <p style="margin-top: 20px; font-size: 0.8em; opacity: 0.6;">© 2026 Inmobiliaria Herrera C&C</p>
-    </div>
-</footer>
-
-</body>
-</html>
+    /* ... (resto de tus estilos de filtro, contenedor, tarjetas, etc. se mantienen igual) ... */
+</style>
