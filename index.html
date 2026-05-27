@@ -16,72 +16,85 @@
     
         body { font-family: 'Segoe UI', sans-serif; margin: 0; background-color: var(--fondo); color: var(--texto); scroll-behavior: smooth; }
 
-        /* HEADER AZUL DELGADO */
+        /* HEADER AZUL DELGADO Y ELEGANTE */
         header { 
             background: var(--primario); 
             color: var(--acentos); 
-            padding: 20px 15px; 
+            padding: 15px; 
             text-align: center; 
         }
         
         .logo-container img {
-            max-height: 100px; 
+            max-height: 90px; 
             width: auto;
             margin-bottom: 5px;
             filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.3));
         }
 
-        header h1 { margin: 5px 0; font-size: 1.8em; text-transform: uppercase; letter-spacing: 1px; }
-        header p { margin: 5px 0 0 0; font-size: 1em; opacity: 0.9; }
+        header h1 { margin: 5px 0; font-size: 1.6em; text-transform: uppercase; letter-spacing: 1px; }
+        header p { margin: 3px 0 0 0; font-size: 0.95em; opacity: 0.9; }
 
-        /* CONTENEDOR DEL BANNER */
+        /* BANNER PROTAGONISTA PERO COMPACTO */
         .banner-contenedor {
             width: 100%;
-            height: 350px; 
+            height: 280px; /* Altura controlada para que no robe excesivo espacio */
             overflow: hidden;
             display: block;
-            background-color: var(--primario); /* Fondo de respaldo por si acaso */
-            border-bottom: 5px solid var(--acentos); 
+            background-color: var(--primario); 
+            border-bottom: 4px solid var(--acentos); 
         }
 
         .banner-contenedor img {
             width: 100%;
             height: 100%;
             object-fit: cover; 
-            object-position: center;
+            object-position: center 35%; /* Centra la vista en la mejor parte de la ciudad */
         }
 
-        /* Ajuste de altura para celulares */
+        /* Ajuste de altura ideal para pantallas de celulares */
         @media (max-width: 768px) {
-            .banner-contenedor { height: 220px; }
-            header h1 { font-size: 1.5em; }
+            .banner-contenedor { height: 180px; }
+            header h1 { font-size: 1.3em; }
+            header p { font-size: 0.85em; }
         }
 
-        /* BARRA DE FILTROS */
+        /* BARRA DE FILTROS / BOTONES */
         .filter-bar { 
-            display: flex; overflow-x: auto; gap: 15px; padding: 20px; 
-            background: white; position: sticky; top: 0; z-index: 1000;
+            display: flex; 
+            overflow-x: auto; 
+            gap: 12px; 
+            padding: 15px; 
+            background: white; 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000;
             box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            justify-content: start;
+        }
+        
+        /* Centrado en computadoras */
+        @media (min-width: 769px) {
+            .filter-bar { justify-content: center; }
         }
         
         @keyframes pulse-gold {
             0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(197, 160, 89, 0.4); }
-            70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(197, 160, 89, 0); }
+            70% { transform: scale(1.03); box-shadow: 0 0 0 8px rgba(197, 160, 89, 0); }
             100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(197, 160, 89, 0); }
         }
 
         .badge { 
             background: var(--primario); color: var(--acentos); 
-            border: 1px solid var(--acentos); padding: 12px 25px; 
+            border: 1px solid var(--acentos); padding: 10px 22px; 
             border-radius: 25px; font-size: 0.9em; white-space: nowrap;
             font-weight: 600; cursor: pointer;
             animation: pulse-gold 3s infinite;
         }
 
-        /* CONTENEDOR DE PROPIEDADES EN CUADRÍCULA */
+        /* CONTENEDOR DE PROPIEDADES */
         .container { 
-            max-width: 1200px; margin: 40px auto; padding: 0 20px;
-            display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 35px;
+            max-width: 1200px; margin: 30px auto; padding: 0 20px;
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 30px;
         }
 
         .card { 
@@ -115,7 +128,7 @@
         .btn-wa { 
             display: flex; align-items: center; justify-content: center; gap: 10px;
             background: var(--exito); color: white; 
-            padding: 16px; border-radius: 8px; text-decoration: none; font-weight: bold;
+            padding: 15px; border-radius: 8px; text-decoration: none; font-weight: bold;
         }
 
         .social-links { margin: 25px 0; display: flex; justify-content: center; gap: 20px; }
@@ -124,14 +137,14 @@
 
         footer { 
             background: var(--primario); color: white; 
-            padding: 60px 20px; text-align: center; border-top: 5px solid var(--acentos); 
+            padding: 50px 20px; text-align: center; border-top: 5px solid var(--acentos); 
         }
         .footer-info a { color: var(--acentos); text-decoration: none; font-weight: bold; }
     </style>
 </head>
 <body>
 
-<!-- SECCIÓN 1: El área azul delgada -->
+<!-- SECCIÓN 1: Logotipo y títulos -->
 <header>
     <div class="logo-container">
         <img src="https://i.ibb.co/r2FGcXms/logo-azul.png" alt="Herrera C&C Logo">
@@ -140,9 +153,9 @@
     <p>Gestión Inmobiliaria & Consultoría Empresarial</p>
 </header>
 
-<!-- SECCIÓN 2: Foto de Medellín (Enlace Directo e Inmune a Bloqueos) -->
+<!-- SECCIÓN 2: Foto de Medellín local (Ajustada y equilibrada) -->
 <div class="banner-contenedor">
-    <img src="https://images2.imgbox.com/f0/54/O4N2jWbK_o.jpg" alt="Panorámica de Medellín">
+    <img src="medellin.jpg" alt="Panorámica de Medellín">
 </div>
 
 <!-- SECCIÓN 3: Barra de Navegación / Filtros -->
