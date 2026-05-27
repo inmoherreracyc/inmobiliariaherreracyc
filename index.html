@@ -7,18 +7,22 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --primario: #1A2238; 
-            --acentos: #C5A059;  
-            --exito: #25D366;    
+            --primario: #1A2238; /* Azul Profundo */
+            --acentos: #C5A059;  /* Dorado */
+            --exito: #25D366;    /* Verde WhatsApp */
             --fondo: #f8f9fa;
+            --texto: #333;
         }
     
-        body { font-family: 'Segoe UI', sans-serif; margin: 0; background-color: var(--fondo); color: var(--primario); scroll-behavior: smooth; }
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; background-color: var(--fondo); color: var(--texto); scroll-behavior: smooth; }
 
+        /* HEADER ACTUALIZADO: Banner con Imagen y Filtro */
         header { 
-            background: var(--primario); 
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://i.ibb.co/68v8vX5/banner-medellin.jpg'); /* REEMPLAZAR CON TU LINK DIRECTO DE IMGBB */
+            background-size: cover;
+            background-position: center;
             color: var(--acentos); 
-            padding: 40px 20px; 
+            padding: 60px 20px; 
             text-align: center; 
             border-bottom: 5px solid var(--acentos); 
         }
@@ -26,10 +30,13 @@
         .logo-container img {
             max-height: 160px;
             width: auto;
-            margin-bottom: 10px;
-            filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.2));
+            margin-bottom: 15px;
+            filter: drop-shadow(0px 3px 6px rgba(0,0,0,0.4));
         }
 
+        header h1 { margin-top: 0; font-size: 2.2em; text-transform: uppercase; }
+
+        /* Animación para los botones de categorías */
         @keyframes pulse-gold {
             0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(197, 160, 89, 0.4); }
             70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(197, 160, 89, 0); }
@@ -50,22 +57,47 @@
             animation: pulse-gold 3s infinite;
         }
 
+        /* CONTAINER CON CUADRÍCULA PROFESIONAL */
         .container { 
-            max-width: 1100px; margin: 30px auto; padding: 0 15px;
-            display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 30px;
+            max-width: 1200px; margin: 40px auto; padding: 0 20px;
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 35px;
         }
 
-        .card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-        .card img { width: 100%; height: 230px; object-fit: cover; }
+        /* ESTILO DE TARJETA ACTUALIZADO */
+        .card { 
+            background: white; 
+            border-radius: 12px; /* Bordes más rectos, más profesionales */
+            overflow: hidden; 
+            box-shadow: 0 6px 20px rgba(0,0,0,0.08); 
+            transition: transform 0.3s ease; 
+            position: relative; /* Para las etiquetas */
+        }
+        .card:hover { transform: translateY(-5px); }
+
+        .card img { width: 100%; height: 250px; object-fit: cover; }
+
+        /* Etiquetas "Disponible" y "Categoría" */
+        .status-badge {
+            position: absolute; top: 15px; left: 15px;
+            background: var(--exito); color: white;
+            padding: 5px 12px; border-radius: 4px; font-size: 0.8em; font-weight: bold;
+        }
+        .category-badge {
+            position: absolute; top: 15px; right: 15px;
+            background: var(--primario); color: var(--acentos);
+            padding: 5px 12px; border-radius: 4px; font-size: 0.8em; font-weight: bold;
+        }
+
         .card-body { padding: 25px; }
-        .price { font-size: 1.8em; font-weight: bold; color: var(--primario); margin-bottom: 10px; }
+        .price { font-size: 1.8em; font-weight: bold; color: var(--primario); margin-bottom: 12px; }
         
-        .desc { font-size: 0.95em; line-height: 1.5; margin-bottom: 20px; }
+        .desc { font-size: 0.95em; line-height: 1.6; margin-bottom: 25px; color: #555; }
+        .desc b { color: var(--primario); }
 
         .btn-wa { 
             display: flex; align-items: center; justify-content: center; gap: 10px;
             background: var(--exito); color: white; 
-            padding: 15px; border-radius: 10px; text-decoration: none; font-weight: bold;
+            padding: 16px; border-radius: 8px; text-decoration: none; font-weight: bold;
             transition: background 0.3s ease;
         }
         .btn-wa:hover { background: #128C7E; }
@@ -79,7 +111,7 @@
 
         footer { 
             background: var(--primario); color: white; 
-            padding: 50px 20px; text-align: center; border-top: 5px solid var(--acentos); 
+            padding: 60px 20px; text-align: center; border-top: 5px solid var(--acentos); 
         }
         .footer-info a { color: var(--acentos); text-decoration: none; font-weight: bold; }
     </style>
@@ -88,7 +120,7 @@
 
 <header>
     <div class="logo-container">
-        <img src="https://i.ibb.co/r2FGcXms/logo-azul.png" alt="Herrera C&C">
+        <img src="https://i.ibb.co/r2FGcXms/logo-azul.png" alt="Herrera C&C Logo">
     </div>
     <h1>INMOBILIARIA HERRERA C&C</h1>
     <p>Gestión Inmobiliaria & Consultoría Empresarial</p>
@@ -99,26 +131,24 @@
     <div class="badge">Casas</div>
     <div class="badge">Apartamentos</div>
     <div class="badge">Lotes</div>
-    <div class="badge">Fincas Y Casas fincas</div>
+    <div class="badge">Fincas</div>
 </div>
 
 <div class="container">
     
-    <!-- PROPIEDAD: CÓDIGO 777-0 -->
     <div class="card">
-        <img src="https://i.ibb.co/tMHRrgzL/casa-robledo.jpg" alt="Casa en Robledo Villa Campiña">
+        <div class="status-badge">Disponible</div>
+        <div class="category-badge">Casa</div>
+        
+        <img src="https://i.ibb.co/tMHRrgzL/casa-robledo.jpg" alt="Casa en Robledo">
         <div class="card-body">
             <div class="price">$350.000.000</div>
             
             <p class="desc">
                 <span style="color: var(--acentos); font-weight: bold; border-bottom: 1px solid var(--acentos);">CÓDIGO: 777-0</span><br><br>
-                <b>Hermosa Casa Unifamiliar  - Robledo Villa Campiña</b><br>
-                3 pisos con aire para constrir la terraza, en unidad abierta muy tranquila con zona infantil.<br><br>
-                <b>Distribución:</b><br>
-                • Piso 1: Habitación, cocina integral, sala comedor, patio y cuarto útil.<br>
-                • Piso 2: 2 habitaciones (una con vestier), baño y balcón.<br>
-                • Piso 3: Habitación con vestier, baño y terraza techada.<br><br>
-                <b>Detalles:</b> Área 100 Mts², Estrato 3, parqueaderos comunes.
+                <b>Hermosa Casa Unifamiliar Esquinera - Robledo Villa Campiña</b><br>
+                3 pisos con aire, en unidad abierta muy tranquila con zona infantil.<br><br>
+                <b>Distribución:</b> 1er piso con habitación y cocina integral. 2do y 3er piso con 3 habitaciones adicionales (principal con vestier), baños y balcón/terraza BBQ. Área total aprox. 100 Mts². Estrato 3.
             </p>
 
             <a href="https://wa.me/573005343498?text=Hola%20Herrera%20C&C,%20me%20interesa%20la%20propiedad%20CÓDIGO:%20777-0" class="btn-wa">
@@ -127,10 +157,11 @@
         </div>
     </div>
 
-</div>
-    <!-- PROPIEDAD: CÓDIGO 777-1 -->
     <div class="card">
-        <img src="https://i.ibb.co/qL7QvGjf/casa-san-martin.jpg" alt="Casa en Urbanización San Martin">
+        <div class="status-badge">Disponible</div>
+        <div class="category-badge">Casa</div>
+        
+        <img src="https://i.ibb.co/qL7QvGjf/casa-san-martin.jpg" alt="Casa en San Martín">
         <div class="card-body">
             <div class="price">$375.000.000</div>
             
@@ -138,25 +169,21 @@
                 <span style="color: var(--acentos); font-weight: bold; border-bottom: 1px solid var(--acentos);">CÓDIGO: 777-1</span><br><br>
                 <b>Casa de 3 Pisos - Urbanización San Martín</b><br>
                 Cerca de La Campiña. Unidad abierta con gimnasio, zona infantil y zonas verdes.<br><br>
-                
-                <b>Distribución:</b><br>
-                • <b>Pisos 1 y 2:</b> 3 habitaciones (principal con baño y vestier), sala comedor, cocina integral, sala de estar con licorera y 2 balcones.<br>
-                • <b>Piso 3:</b> Zona BBQ y zona de ropas con posibilidad de ampliación.<br><br>
-                
-                <b>Detalles:</b> Área 118 m², Estrato 3, parqueadero público y entrada para moto. Cerca a transporte y comercio.
+                <b>Distribución:</b> 3 habitaciones (principal con baño y vestier), sala-comedor y cocina integral. 3er piso con zona BBQ y zona de ropas, posibilidad de ampliación. Área aprox. 118 m². Estrato 3.
             </p>
 
-            <a href="https://wa.me/573005343498?text=Hola%20Herrera%20C&C,%20me%20interesa%20la%20propiedad%20CÓDIGO:%20777-1%20en%20San%20Martin" class="btn-wa">
+            <a href="https://wa.me/573005343498?text=Hola%20Herrera%20C&C,%20me%20interesa%20la%20propiedad%20CÓDIGO:%20777-1" class="btn-wa">
                 📲 Contactar por WhatsApp
             </a>
         </div>
     </div>
 
+</div>
+
 <footer>
     <div class="footer-info">
         <p>📍 Medellín, Antioquia, Colombia</p>
         <p>📞 Celular: <b>300 534 3498</b></p>
-        <p>📝 NIT: <b>43653580-6</b></p>
         <p>📧 Correo: <a href="mailto:inmobiliariaherreracyc@gmail.com">inmobiliariaherreracyc@gmail.com</a></p>
         
         <div class="social-links">
